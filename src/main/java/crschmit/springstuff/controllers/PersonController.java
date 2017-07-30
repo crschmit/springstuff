@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -53,6 +54,28 @@ public class PersonController {
 		// do some stuff to the new Dto ...
 		
 		return newPersonDto;
+	}
+	
+	// Find people by First Name
+	@GetMapping("/given-name/{givenName}")
+	public List<PersonDto> findByGivenName(@PathVariable String givenName, HttpServletResponse response) {
+		response.setStatus(HttpServletResponse.SC_ACCEPTED);
+		
+		return personService.findByGivenName(givenName).stream()
+					.filter(person -> !person.getDeleted())
+					.map(personMapper::toPersonDto)
+					.collect(Collectors.toList());
+	}
+	
+	// Find people by First Name
+	@GetMapping("/family-name/{familyName}")
+	public List<PersonDto> findByFamilynName(@PathVariable String familyName, HttpServletResponse response) {
+		response.setStatus(HttpServletResponse.SC_ACCEPTED);
+		
+		return personService.findByFamilyName(familyName).stream()
+					.filter(person -> !person.getDeleted())
+					.map(personMapper::toPersonDto)
+					.collect(Collectors.toList());
 	}
 	
 }

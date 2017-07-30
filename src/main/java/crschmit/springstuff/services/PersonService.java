@@ -29,4 +29,12 @@ public class PersonService {
 		return personRepository.save(person);
 	}
 
+	public List<Person> findByGivenName(String givenName) {
+		return personRepository.findByGivenName(givenName);
+	}
+	
+	public List<Person> findByFamilyName(String familyName) {
+		return personRepository.findByFamilyName(familyName);
+	}
+
 }
