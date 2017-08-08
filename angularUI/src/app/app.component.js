@@ -5,6 +5,10 @@ const controller = class MyAppController {
   constructor ($log, $state, localStorageService) {
     'ngInject'
     $log.log('my-app...')
+
+    this.aCityName = "King's Landing"
+    this.aPersonGivenName = "Arya"
+    this.aPersonFamilyName = "Stark"
   }
 }
 

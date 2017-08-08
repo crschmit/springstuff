@@ -13,5 +13,9 @@ const controller = class SimplePersonController {
 export const simplePerson = {
   controller,
   templateUrl,
-  controllerAs: 'simplePerson'
+  controllerAs: 'simplePerson',
+  bindings: {
+    givenName: '<',
+    familyName: '<'
+  }
 }

@@ -1,3 +1,16 @@
 <h1>Spring Stuff</h1>
 <h2>My App</h2>
+<hr>
+<div class="">
+  <a ui-sref="myApp.acity({ cityName: app.aCityName })">A City</a>
+  <input type="text" value={{app.aCityName}} ng-model="app.aCityName">
+</div>
+<div class="">
+  <a ui-sref="myApp.aperson({ givenName: app.aPersonGivenName, familyName: app.aPersonFamilyName})">A Person</a>
+  <input type="text" value={{app.aPersonGivenName}} ng-model="app.aPersonGivenName">
+  <input type="text" value={{app.aPersonFamilyName}} ng-model="app.aPersonFamilyName">
+</div>
+<hr>
 <ui-view></ui-view>
+<hr>
+c
